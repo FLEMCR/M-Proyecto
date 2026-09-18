@@ -6,7 +6,7 @@ import config
 # ---------- CONFIGURACIÓN INICIAL ----------
 pygame.init()
 pantalla = pygame.display.set_mode((config.ANCHO, config.ALTO))
-pygame.display.set_caption("Mi primer juego")
+pygame.display.set_caption("PYPENE")
 reloj = pygame.time.Clock()
 fuente = pygame.font.SysFont("Arial", 20)  # Para mostrar texto (ej. FPS)
 
@@ -16,9 +16,9 @@ dt = 0  # delta time: segundos desde el frame anterior
 
 # El jugador es un círculo. Vector2 es cómodo para posiciones y velocidades
 jugador_pos = pygame.Vector2(config.ANCHO / 2, config.ALTO / 2)
-jugador_radio = 25
+jugador_radio = 45
 jugador_color = "red"
-jugador_velocidad = 300  # píxeles por segundo
+jugador_velocidad = 500  # píxeles por segundo
 
 # ---------- BUCLE PRINCIPAL ----------
 while funcionando:
@@ -48,11 +48,11 @@ while funcionando:
     jugador_pos.y = max(jugador_radio, min(config.ALTO - jugador_radio, jugador_pos.y))
 
     # 3) DIBUJAR
-    pantalla.fill("purple")  # borra el frame anterior
+    pantalla.fill("white")  # borra el frame anterior
     pygame.draw.circle(pantalla, jugador_color, jugador_pos, jugador_radio)
 
     # Texto con los FPS (útil para depurar)
-    texto = fuente.render(f"FPS: {reloj.get_fps():.0f}", True, "white")
+    texto = fuente.render(f"FPS: {reloj.get_fps():.0f}", True, "black")
     pantalla.blit(texto, (10, 10))
 
     # 4) MOSTRAR Y ESPERAR

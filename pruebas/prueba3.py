@@ -1,5 +1,6 @@
 import sys
 
+from cairo import STATUS_LAST_STATUS
 from PySide6.QtWidgets import (
     QApplication,
     QGridLayout,

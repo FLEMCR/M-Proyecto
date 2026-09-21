@@ -1,22 +1,12 @@
+from PySide6.QTWidgets import
 import sys
 
-from cairo import STATUS_LAST_STATUS
-from PySide6.QtWidgets import (
-    QApplication,
-    QGridLayout,
-    QHBoxLayout,
-    QMessageBox,
-    QPushButton,
-    QVBoxLayout,
-    QWidget,
-)
+app = QApplication()
+ventana = VentanaJuego(sys.argv)
 
 
-class Juego_Tres_Raya(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Tres en Raya")
+class VentanaJuego(QWidget):
+    def __init__():
 
-
-app = QApplication(sys.argv)
-ventana = Juego_Tres_Raya()
+app.exec()
+ventana.show()

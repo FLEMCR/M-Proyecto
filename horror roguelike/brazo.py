@@ -1,10 +1,11 @@
+# Modulo: brazo.py
+
 """Brazo libre o anclado: el arrastre del ratón tira del torso."""
 
 from dataclasses import dataclass
 from enum import Enum, auto
 
 import pygame
-
 from configuracion import (
     ALCANCE_BRAZO,
     DISTANCIA_MINIMA_ANCLA,
@@ -30,7 +31,9 @@ class Brazo:
     ancla: pygame.Vector2 | None = None
     tiron_pendiente: float = 0.0
 
-    def posicion_mano(self, torso: pygame.Vector2, cursor: pygame.Vector2) -> pygame.Vector2:
+    def posicion_mano(
+        self, torso: pygame.Vector2, cursor: pygame.Vector2
+    ) -> pygame.Vector2:
         if self.ancla is not None:
             return self.ancla.copy()
         desplazamiento = cursor - torso
@@ -38,7 +41,9 @@ class Brazo:
             desplazamiento.scale_to_length(self.alcance)
         return torso + desplazamiento
 
-    def intentar_agarrar(self, jugador: Jugador, cursor: pygame.Vector2, mapa: MapaPrueba) -> bool:
+    def intentar_agarrar(
+        self, jugador: Jugador, cursor: pygame.Vector2, mapa: MapaPrueba
+    ) -> bool:
         if self.estado is not EstadoMano.LIBRE:
             return False
         mano = self.posicion_mano(jugador.posicion, cursor)
@@ -54,10 +59,19 @@ class Brazo:
         self.ancla = None
         self.tiron_pendiente = 0.0
 
-    def tirar(self, jugador: Jugador, delta_raton: pygame.Vector2,
-              tiempo: float, mapa: MapaPrueba) -> float:
+    def tirar(
+        self,
+        jugador: Jugador,
+        delta_raton: pygame.Vector2,
+        tiempo: float,
+        mapa: MapaPrueba,
+    ) -> float:
         """El ratón retrocede hacia el torso y el torso se acerca al ancla."""
-        if self.estado is not EstadoMano.AGARRADO_SUELO or self.ancla is None or tiempo <= 0:
+        if (
+            self.estado is not EstadoMano.AGARRADO_SUELO
+            or self.ancla is None
+            or tiempo <= 0
+        ):
             return 0.0
         hacia_ancla = self.ancla - jugador.posicion
         distancia_ancla = hacia_ancla.length()

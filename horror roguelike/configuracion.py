@@ -1,3 +1,5 @@
+# Modulo: configuracion.py
+
 """Parámetros del microprototipo. Ajústalos después de probar el control."""
 
 ANCHO = 960

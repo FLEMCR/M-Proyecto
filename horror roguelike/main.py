@@ -1,3 +1,5 @@
+# Modulo: main.py
+
 """Microprototipo M1–M4: torso arrastrado mediante un solo brazo."""
 
 import argparse

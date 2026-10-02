@@ -1,9 +1,10 @@
+# Modulo: jugador.py
+
 """Datos del torso y desplazamiento sujeto a colisiones."""
 
 from dataclasses import dataclass, field
 
 import pygame
-
 from configuracion import RADIO_TORSO
 from mapa import MapaPrueba
 
@@ -13,7 +14,9 @@ class Jugador:
     posicion: pygame.Vector2 = field(default_factory=lambda: pygame.Vector2(170, 320))
     radio: float = RADIO_TORSO
 
-    def mover_hacia(self, destino: pygame.Vector2, distancia: float, mapa: MapaPrueba) -> float:
+    def mover_hacia(
+        self, destino: pygame.Vector2, distancia: float, mapa: MapaPrueba
+    ) -> float:
         """Acerca el cuerpo al destino; devuelve la distancia recorrida realmente."""
         desplazamiento = destino - self.posicion
         if distancia <= 0 or desplazamiento.length_squared() == 0:

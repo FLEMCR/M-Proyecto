@@ -1,9 +1,10 @@
+# Modulo: mapa.py
+
 """Superficies y obstáculos para ensayar agarres y colisiones."""
 
 from dataclasses import dataclass, field
 
 import pygame
-
 from configuracion import ALTO, ANCHO, RADIO_TORSO
 
 

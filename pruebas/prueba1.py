@@ -5,15 +5,14 @@ from pygame.locals import *
 
 pygame.init()
 
+icono = pygame.image.load("pruebas/imagenes/icono.png")
+fondo = pygame.image.load("pruebas/imagenes/fondo.jpeg")
 pantalla = pygame.display.set_mode((500, 400))
-pygame.display.set_caption("Mi primer juego")
+pygame.display.set_caption("Diyenguel")
+pygame.display.set_icon(icono)
 
-verde = (130, 200, 0)
 
-pantalla.fill("green")
-fondo = pygame.draw.rect(pantalla, verde, (50, 50, 400, 300))
-serpiente = pygame.draw.line(pantalla, "blue", (100, 104), (199, 104), 20)
-print(serpiente)
+pantalla.fill("white")
 
 
 # bucle de ventana

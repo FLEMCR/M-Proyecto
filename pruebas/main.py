@@ -1,7 +1,7 @@
 # Modulo: main.py
 import pygame
 
-import config
+import pruebas.config as config
 
 # ---------- CONFIGURACIÓN INICIAL ----------
 pygame.init()

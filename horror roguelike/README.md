@@ -1,6 +1,6 @@
 # Proyecto de horror espacial — base de movimiento
 
-Esta carpeta es el microprototipo **M1–M4** del [plan maestro](../PLAN_MAESTRO_30_BLOQUES.md). Todo lo que podemos nombrar libremente está en español: archivos, clases, funciones, pruebas, comentarios y mensajes. Los nombres propios de Python/Pygame (`__name__`, `pygame.Vector2`, `pygame.event.get`, `test_`) se conservan porque forman parte de sus bibliotecas o convenciones.
+Esta carpeta es el microprototipo **M1–M4** del [plan maestro](../PLAN_MAESTRO_30_BLOQUES.md). La lógica del juego (módulos como `brazo.py`, clases, funciones, variables, comentarios y mensajes) está en español. Mantenemos nombres convencionales en inglés para los archivos de entrada y herramientas: `main.py`, `README.md`, `requirements.txt` y `tests/`. Python también requiere conservar nombres especiales y APIs como `__name__` y `pygame.Vector2`.
 
 Todavía no es una misión: figuras simples permiten comprobar el control. El ratón orienta el brazo; clic sostenido apoya la mano en el suelo; arrastrar **hacia el torso** tira del cuerpo. **No hay movimiento WASD.**
 
@@ -21,8 +21,8 @@ Activa el entorno virtual:
 Luego instala y ejecuta:
 
 ```bash
-python -m pip install -r dependencias.txt
-python principal.py
+python -m pip install -r requirements.txt
+python main.py
 ```
 
 Si Windows no reconoce `python`, prueba `py`. No se necesita arte final, servicios ni servidor.
@@ -40,26 +40,26 @@ La mano azul puede agarrar; la amarilla está anclada; la roja indica agarre inv
 ## Pruebas automatizadas
 
 ```bash
-python -m unittest discover -s pruebas -p "test_*.py" -v
+python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 En Linux, para comprobar el arranque sin abrir una ventana real:
 
 ```bash
-SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python principal.py --prueba-arranque
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python main.py --prueba-arranque
 ```
 
 Esa prueba de tres cuadros no sustituye jugarlo personalmente.
 
 ## Archivos actuales
 
-- `principal.py`: entrada, pausa, dibujo provisional y bucle; no debe acumular inventario o IA.
+- `main.py`: entrada, pausa, dibujo provisional y bucle; no debe acumular inventario o IA.
 - `configuracion.py`: parámetros editables del control y colores temporales.
 - `jugador.py`: torso y colisiones al moverlo; no lee el ratón.
 - `brazo.py`: estados libre/agarrando, alcance, ancla y tracción; no dibuja.
 - `mapa.py`: paredes, límites y suelo agarrable.
-- `pruebas/test_movimiento.py`: pruebas de reglas sin ventana.
-- `dependencias.txt`: biblioteca necesaria.
+- `tests/test_movimiento.py`: pruebas de reglas sin ventana.
+- `requirements.txt`: biblioteca necesaria.
 - `recursos/`: futuros gráficos/sonidos y sus licencias.
 
 **Siguiente hito:** M5. Pruébalo, anota qué se siente extraño y ajusta alcance, velocidad o sensibilidad en `configuracion.py` antes de añadir enemigos, oscuridad o armas. Hay un plan archivo por archivo para la primera misión en la sección G del plan maestro.
